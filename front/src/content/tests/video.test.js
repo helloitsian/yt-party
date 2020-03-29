@@ -1,15 +1,20 @@
 'use strict';
 
-const test_changeToRandomTime = () => {
+// Util
+function changeToRandomTime(video) {
+	setVideoTime((Math.random() * 600) + 1, video);
+}
+
+const test_setVideoTime = () => {
 	const video = document.querySelector(".html5-main-video");
 	const videoLength = video.duration;
 	console.log("VIDEO:", video, videoLength, video.currentTime);
 
-	changeToRandomTime();
+	changeToRandomTime(video);
 
 	const prevTime = video.currentTime;
 
-	changeToRandomTime();
+	changeToRandomTime(video);
 
 	const newTime = video.currentTime;
 
@@ -27,4 +32,5 @@ const test_changeToRandomTime = () => {
 	return result;
 }
 
-console	.log(test_changeToRandomTime());
+console.log("Testing setVideoTime function");
+console.log(test_setVideoTime());

@@ -1,8 +1,21 @@
 'use strict';
 
-function changeToRandomTime() {
-	const video = document.querySelector(".html5-main-video");
+function setVideoTime(time, video) {
 	const videoLength = video.duration;
 
-	video.currentTime = (Math.random() * videoLength - 60) + 1;
+	video.currentTime = (time <= videoLength) ? time : videoLength;
+}
+
+function playVideo(video) {
+	const videoLength = video.duration;
+
+	if (!video.playing)
+		video.play();	
+}
+
+function pauseVideo(video) {
+	const videoLength = video.duration;
+
+	if (video.playing)
+		video.pause();	
 }

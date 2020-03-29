@@ -12,15 +12,44 @@ function test_connect() {
 		}
 	}
 
-	socket.on('connect', () => {
+	result.vars.socket.on('connect', () => {
 		result.passed = true;
 	})
 
-	socket.on('connect_error', () => {
+	result.vars.socket.socket.on('connect_error', () => {
 		result.passed = false;
 	})
 
 	return result;
 }
 
-setTimeout(() => console.log(test_connect(), 0);
+function test_hostParty() {
+	const hostManager = new PartyManager();
+	
+	hostManager.hostParty();
+	const partyName = hostManager.party;
+
+	const video = hostManager.video;
+
+	const viewManager = new PartyManager();
+	viewManager.joinParty(partyName);
+
+	pauseVideo(video);
+
+	const result = {
+		passed: false,
+		vars: {
+			hostManager,
+			viewManager,
+			videoStatus: video.playing,
+		}
+	}
+
+	if (viewManager.videoStatus === "paused")
+		result.passed === true;
+
+	return result;
+}
+
+console.log("testing hostParty");
+console.log(test_hostParty());

@@ -12,12 +12,16 @@ class SocketManager {
 
 		this.on('connect', (socket) => {
 			console.log('Connection established', socket);
-		})
+		});
 
 		return this;
 	}
 
 	on(event, cb) {
 		this.socket.on(event, cb);
+	}
+
+	emit(event, val) {
+		this.socket.emit(event, val);
 	}
 }
