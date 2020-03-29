@@ -1,0 +1,35 @@
+{
+  "name": "YouTube Party",
+  "version": "1.0",
+  "description": "A extension to sync youtube videos with others you want to watch with.",
+  "manifest_version": 2,
+
+  /*
+  "background": {
+  	"scripts": [ ],
+  	"persistent": false
+  },
+  */
+
+  "content_scripts": [
+  {
+    "matches": ["https://www.youtube.com/watch?v=*"],
+    "js": [
+      // libs
+      "src/content/lib/socketio.js", 
+      // Managers
+      "src/content/SocketManager.js", 
+      "src/content/PartyManager.js", 
+      // Injects
+      "src/content/video.js", 
+
+      // Tests
+      "src/content/tests/PartyManager.test.js",
+      "src/content/tests/video.test.js"
+    ]
+  }],
+
+  "browser_action": {
+  	"default_popup": "src/static/index.html"
+  }
+}
