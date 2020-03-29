@@ -51,5 +51,15 @@ function test_hostParty() {
 	return result;
 }
 
-console.log("testing hostParty");
-console.log(test_hostParty());
+// Testing using Firecamp atm, this will just join a party
+function test_joinParty() {
+	const viewManager = new PartyManager();
+
+	viewManager.joinParty();
+}
+
+// console.log("testing hostParty");
+// console.log(test_hostParty());
+
+console.log("testing joinParty");
+console.log(test_joinParty());
