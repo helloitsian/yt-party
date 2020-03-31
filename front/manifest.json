@@ -22,10 +22,6 @@
       "src/content/PartyManager.js", 
       // Injects
       "src/content/video.js", 
-
-      // Tests
-      "src/content/tests/PartyManager.test.js",
-      "src/content/tests/video.test.js"
     ]
   }],
 
