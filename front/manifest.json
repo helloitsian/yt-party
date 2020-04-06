@@ -4,12 +4,11 @@
   "description": "A extension to sync youtube videos with others you want to watch with.",
   "manifest_version": 2,
 
-  /*
+
   "background": {
-  	"scripts": [ ],
+  	"scripts": [ "src/background/dev/hot-reload.js" ],
   	"persistent": false
   },
-  */
 
   "content_scripts": [
   {
@@ -21,7 +20,8 @@
       "src/content/SocketManager.js", 
       "src/content/PartyManager.js", 
       // Injects
-      "src/content/video.js", 
+      "src/content/video.js"
+       
     ]
   }],
 

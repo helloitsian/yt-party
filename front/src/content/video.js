@@ -7,15 +7,11 @@ function setVideoTime(time, video) {
 }
 
 function playVideo(video) {
-	const videoLength = video.duration;
-
 	if (video.paused)
 		video.play();	
 }
 
 function pauseVideo(video) {
-	const videoLength = video.duration;
-
 	if (!video.paused)
 		video.pause();	
 }

@@ -10,18 +10,22 @@ class SocketManager {
 		this.socket = io.connect(url);
 		this.host = url;
 
-		this.on('connect', (socket) => {
-			console.log('Connection established', socket);
-		});
+		return this;
+	}
+
+	disconnect() {
+		if (this.socket.connected)
+			this.socket.disconnect();
 
 		return this;
 	}
+
 
 	on(event, cb) {
 		this.socket.on(event, cb);
 	}
 
-	emit(event, val) {
-		this.socket.emit(event, val);
+	emit() {
+		this.socket.emit(...arguments);
 	}
 }

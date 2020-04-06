@@ -1,10 +1,20 @@
 <DOCTYPE html>
 <html>
-
+<head>
+    <style>
+        body {
+            background: black;
+        }
+    </style>
+</head>
 <body>
 
 	<!-- TESTING TARGET -->
-	<video src="https://www.w3schools.com/html/mov_bbb.mp4" class="html5-main-video" muted loop controls></video>
+	<h2>Host Video</h2>
+	<video src="https://www.w3schools.com/html/mov_bbb.mp4" class="html5-main-video host" muted loop controls></video>
+
+	<h2>Viewer Video</h2>
+	<video src="https://www.w3schools.com/html/mov_bbb.mp4" class="html5-main-video viewer" muted loop controls></video>
 
 	<!-- IMPORTS START -->
 
@@ -14,16 +24,21 @@
 	<script src="lib/jasmine-html.min.js"></script>
 	<script src="lib/boot.min.js"></script>
 
+	<!-- Chrome extension lib -->
+	<script src="../src/content/lib/socketio.js"></script>
 
 	<!-- Controllers, Managers, Things we use in extension? -->
 	<script src="../src/content/PartyManager.js"></script>
-	<script src="../src/content/SocketManager.js"></script>
+	<script src="../src/content/HostManager.js"></script>
+	<script src="../src/content/ViewerManager.js"></script>
+	<script src="../src/content/SocketManager.js"></script>-->
 	<script src="../src/content/video.js"></script>
 
 	<!-- Tests! -->
-	<!--<scripts src="PartyManager.spec.js"></scripts>
-	<scripts src="SocketManager.spec.js"></scripts>-->
-	<script src="content/video.spec.js"></script>
+	<!--<script src="content/SocketManager.spec.js"></script>-->
+	<!--<script src="content/HostManager.spec.js"></script>-->
+	<script src="content/ViewerManager.spec.js"></script>
+	<!--<script src="content/video.spec.js"></script>-->
 	
 	<!-- IMPORTS END -->
 </body>

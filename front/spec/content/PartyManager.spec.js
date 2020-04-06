@@ -60,6 +60,3 @@ function test_joinParty() {
 
 // console.log("testing hostParty");
 // console.log(test_hostParty());
-
-console.log("testing joinParty");
-console.log(test_joinParty());
