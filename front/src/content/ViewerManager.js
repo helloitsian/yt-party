@@ -23,8 +23,8 @@ class ViewerManager extends PartyManager {
 		playVideo(this.video);		
 	}
 
-	handleUpdateVideoTime() {
-		/* TODO */		
+	handleUpdateVideoTime(socketData) {
+		setVideoTime(this.video, socketData.videoTime);
 	}
 
 	joinParty(partyId) {
@@ -34,13 +34,12 @@ class ViewerManager extends PartyManager {
 		if (video == null) {
 			alert("Please use join party on YouTube video tab.")
 		} else {
-			// emit join room event TODO
-
 			this.video = video;
 			this.party.name = partyId;
 
+            // emit join-party event to socket server
 			this.SocketManager.emit('join-party', this.party.name, (res) => {
-				this.party = res;
+				this.party = res; // socket server will give us backend party info, we store it
 				console.log(this.party)
 			});
 
@@ -53,8 +52,8 @@ class ViewerManager extends PartyManager {
 	}
 
 	leaveParty() {
-		this.party = null;
+        this.SocketManager.emit('leave-party', this.party.name);
 		this.SocketManager.disconnect(); 
-		// emit leave room event TODO
-	}
+        this.party = null; 
+    }
 }
