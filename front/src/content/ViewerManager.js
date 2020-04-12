@@ -9,17 +9,16 @@ class ViewerManager extends PartyManager {
 		this.handlePlayVideo = this.handlePlayVideo.bind(this);
 		this.joinParty = this.joinParty.bind(this);
 		this.videoSelector = selector;
+		
 		this.SocketManager.connect("http://localhost:8000");
 	}
 
 	handlePauseVideo() {
-		console.log("PAUSE EVENT RECEIVED FROM SOCKET");
 		this.videoStatus = "paused";
 		pauseVideo(this.video);
 	}
 
 	handlePlayVideo() {
-		console.log("PLAY EVENT RECEIVED FROM SOCKET");
 		this.videoStatus = "playing";
 		playVideo(this.video);		
 	}
