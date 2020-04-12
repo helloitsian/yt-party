@@ -3,29 +3,39 @@
   "version": "1.0",
   "description": "A extension to sync youtube videos with others you want to watch with.",
   "manifest_version": 2,
+    "background": {
+        "scripts": [
+           "src/background/background.js" 
+        ]
+        "persistent": false
+    },
 
+    "content_scripts": [
+        {
+            "run_at": "document_start",
+            "matches": ["https://*/*"],
+            "js": [
+            // shared
+                "src/shared/chromitter.js",
 
-  "background": {
-  	"scripts": [ "src/background/dev/hot-reload.js" ],
-  	"persistent": false
-  },
+              // libs
+              "src/content/lib/socketio.js",
+              // Managers
+              "src/content/SocketManager.js", 
+              "src/content/PartyManager.js", 
+              // Injects
+              "src/content/video.js",
+              "src/content/app.js"
+               
+            ]
+        }
+    ],
 
-  "content_scripts": [
-  {
-    "matches": ["https://www.youtube.com/watch?v=*"],
-    "js": [
-      // libs
-      "src/content/lib/socketio.js", 
-      // Managers
-      "src/content/SocketManager.js", 
-      "src/content/PartyManager.js", 
-      // Injects
-      "src/content/video.js"
-       
+    "browser_action": {
+    "default_popup": "src/static/index.html"
+    },
+
+    "permissions": [
+        "tabs", "activeTab"
     ]
-  }],
-
-  "browser_action": {
-  	"default_popup": "src/static/index.html"
-  }
 }

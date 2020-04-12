@@ -1,19 +1,29 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
-	<h1>DEV</h1>
-	<button id="change-random-time">Change to Random Time</button>
+	<div class="content-wrap">
+		<main class="flex flex-vert-center flex-column">
+			<header class="header">
+				<h1>YouTube Party</h1>
+			</header>
+			<button class="app-start-party btn-hover color-4">
+				Start Party <span class="emoji">🎉</span>
+			</button>
+			<button class="app-join-party btn-hover color-3">
+				Join Party
+			</button>
+		</main>
 
-	<h1>YouTube Party</h1>
-	<form id="session-form">
-		Enter Session ID: <input id="session-id-input"/>
-		<button>Join</button>
-	</form>
-
+		<small><a href="https://codepen.io/JavaScriptJunkie/pen/pPRooV" target="_blank">Buttons sourced from</a>
+	</div>
 	<!-- Import JS -->
-	<script src="js/dev.util.js"></script>
+	<script src="../shared/chromitter.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
