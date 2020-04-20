@@ -6,7 +6,7 @@
     "background": {
         "scripts": [
            "src/background/background.js" 
-        ]
+        ],
         "persistent": false
     },
 
@@ -25,8 +25,8 @@
               "src/content/PartyManager.js", 
               // Injects
               "src/content/video.js",
-              "src/content/app.js"
-               
+              "src/content/app.js",
+              "src/content/injected_client.js"               
             ]
         }
     ],

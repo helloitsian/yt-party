@@ -12,12 +12,26 @@
 			<header class="header">
 				<h1>YouTube Party</h1>
 			</header>
-			<button class="app-start-party btn-hover color-4">
-				Start Party <span class="emoji">🎉</span>
-			</button>
-			<button class="app-join-party btn-hover color-3">
-				Join Party
-			</button>
+            <div id="view-wrap">
+                <div id="intro-view">
+                    <button class="app-start-party btn-hover color-3">
+                        Start Party <span class="emoji">🎉</span>
+                    </button>
+                    <button class="app-join-party btn-hover color-5">
+                        Join Party
+                    </button>
+                </div>
+                
+                <div id="host-party-view" class="hidden">
+                    <a href="#" class="party-url">{{ party-url }}</a>
+                    <button id="end-party-button" class="btn-hover color-4">End Party</button>
+                </div>
+                <div id="viewer-party-view" class="hidden">
+                    <a href="#" class="party-url">{{ party-url }}</a>
+                    <button id="leave-party-button" class="btn-hover color-4">Leave Party</button>
+                </div>
+
+            </div>
 		</main>
 
 		<small><a href="https://codepen.io/JavaScriptJunkie/pen/pPRooV" target="_blank">Buttons sourced from</a>
